@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <script src="JS배우기.js"></script> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS배우기</title>
+    <!-- <script>                                           head 위치에 script를 위치 시킬시 지금처럼 코드를 수정해야함
+            window.onload = function(){                         window.onload = function(){} 함수는 웹브라우저의 모든 구성요소에 대한
+                var hw = document.getElementById('hw');         로드가 끝났을 때 브라우저에 의해서 호출이 되는 함수(=>이벤트)
+                hw.addEventListener('click', function(){        
+                    alert('Hello world');
+                })
+            }
+        </script> -->
+  </head>
+  <body>
+    <button onclick="clearInterval(banbok)">멈춰!</button><br />
+    <button onclick="changeColor()">배경색 변경</button><br />
+    <button onclick="gotoGoogle()"><a href="#google">구글 GO</a></button><br />
+    <button><a id="btn2" href="#reload">새로고침</a></button><br />
+    <button id="btnBack">뒤로</button>
+    <button id="btnForward">앞으로</button><br />
+    <button id="btnBackStep">이전 상세 페이지</button><br />
+    <button id="btnShowHistory">방문기록 갯수</button><br />
+    <p id="document"></p>
+    <p id="html"></p>
+    <h1 id="message">마리마리얍</h1>
+    <p id="count"></p>
+    <p id="showNum"></p>
+    <span>안녕 마리마리얍</span><br />
+    <input type="button" onclick="alert('안녕?')" value="마리마리얍" /><br />
+    <!-- <input type="button" id="hw" value="뿌슝뿌슝얍" /><br> -->
+    <script>
+      document.write(
+        (document.getElementById("document").innerHTML =
+          document.childNodes[1].nodeName + "<br>")
+      ); //노드 정보 접근(id이름)
+      document.write(
+        (document.getElementById("html").innerHTML =
+          document.childNodes[1].childNodes[0].nodeName + "<br>")
+      ); //노드 정보 접근(id이름)
+      document.write(
+        document.getElementById("btnShowHistory").parentNode + "<br>"
+      ); //노드 관계로 접근(부모 노드)
+      document.write(document.links.length + "<br>"); //객체를 모두 반환(area, a)
+      document.write(
+        document.getElementById("btn2").getAttribute("href") + "<br>"
+      ); //속성에 접근
+      document.write(document.getElementById("btn2").cloneNode(false) + "<br>"); //객체 생성 방법(복제)
+      // document.write(document.getElementById('showNum').innerHTML=num);                                                    //텍스트 출력(write), 요소의 내용에 접근 및 변경(innerHTML)
+
+      // 객체의 생성과 호출
+      // let sound= new Object;              // 1. 기본 객체 함수 new Object로 객체 생성
+
+      // sound.volume='20';                  // 2. 생성한 객체에 속성 값 주기
+      // sound.eq= 'pop';
+      // document.write(sound.eq+'<br>');    // 3. 결과(변수처럼 사용가능)
+
+      // sound.info= function(){                                      // 1. 객체 속성안에 함수 생성
+      //     document.write('sound의 볼륨 : '+ this.volume,'<br>');
+      //     document.write('sound의 이퀄 : '+ this.eq,'<br>')        // 2. 함수 안 코드 실행
+      // }
+      // sound.info();                                                // 3. 객체의 함수 호출
+
+      // 날짜 객체
+      // let today= new Date();                                          // 1. 날짜 객체 생성
+      // let thisYear= today.getFullYear();                              // 2. 올해 날짜 객체 생성
+
+      // let theDate= new Date(thisYear,11,31);                          // 3. 올해의 날짜 객체를 12월31일로 변경(12월은 [11] [0]부터 시작)
+      // let diffDate= theDate.getTime() - today.getTime();              // 4. 말일 - 오늘 (시간을 가져와 날짜의 차이를 알 수있음)
+      // let answer= Math.ceil(diffDate / (60*1000*60*24));              // 5. 1000밀리초*60(1분) * 60(1시간)*24(하루) = 1일 단위 표시
+      // document.write('올해 남은 일수 D-day : '+answer+'일 남았다리');  // 6. 객체의 함수 호출
+
+      // 수학 객체
+      // document.write(Math.pow(5, 5))          //3125 5의 거듭제곱값
+      // document.write(Math.max(5, 5, 6, 7))    //7 최댓값
+      // document.write(Math.min(5, 5, 6, 7))    //5 최솟값
+
+      // let num= 4.59275;
+      // let roundnum= Math.round(num)
+      // let ceilnum= Math.ceil(num)
+      // let floornum= Math.floor(num)
+
+      // document.write(roundnum + '<br>')       //5 소수점 첫째자리 반올림(round)
+      // document.write(ceilnum + '<br>')        //5 소수점 첫째자리 무조건 올림(ceil)
+      // document.write(floornum + '<br>')       //4 소수점 첫째자리 무조건 내림(floor)
+
+      // let randomNum= Math.ceil(Math.random()*9); //1~9(.random()*9)의 난수가 발생
+      // document.write(randomNum+"<br>");
+
+      // if(randomNum==1){
+      //     document.write("1이 나왔습니다.")
+      // }
+      // if(randomNum==2){
+      //     document.write("2가 나왔습니다.")
+      // }
+      // if(randomNum==3){
+      //     document.write("3이 나왔습니다.")
+      // }
+      // if(randomNum==4){
+      //     document.write("4가 나왔습니다.")
+      // }
+      // if(randomNum==5){
+      //     document.write("5가 나왔습니다.")
+      // }
+      // if(randomNum==6){
+      //     document.write("6가 나왔습니다.")
+      // }
+      // if(randomNum==7){
+      //     document.write("7가 나왔습니다.")
+      // }
+      // if(randomNum==8){
+      //     document.write("8가 나왔습니다.")
+      // }
+      // if(randomNum==9){
+      //     document.write("9가 나왔습니다.")
+      // }
+
+      // 배열 객체
+      // let arr= new Array();               //한줄씩 배열만들기
+      // arr[0]=1;
+      // arr[1]=2;
+      // arr[2]=3;
+      // document.write(arr[0]);
+      // document.write("<br><br>");
+
+      // let arr2= new Array(4,5,6);         //소괄호 안에 차례로 만들기
+      // for(let i=0; i<arr2.length; i++){
+      //     document.write(arr2[i]);
+      // }
+      // document.write("<br><br>");
+
+      // let arr3= [7,8,9];                 //대괄호 안에 차례로 만들기
+      // for(let j=0; j<arr.length; j++){
+
+      // }
+      // document.write(arr3[j])
+
+      // let arr4= [90,91,92,93,94];
+      // document.write(arr4.slice(0,4)); //[90,91,92,93] [0]부터 [4]까지 반환
+
+      // 문자열 객체
+      // let str= new String('마리마리얍');  //문자열 객체 생성 후 변수 참조
+      // document.write(str);
+
+      // let str2= '치링치링얍'              //바로 문자열 변수 참조 가능
+      // document.write(str2);
+
+      // let str3= '뿌슝뿌슝얍'
+      // document.write(str3.substr('뿌', 3));
+
+      // indexOf로 유효성 검사 실습
+      // let user= prompt('이메일 입력','');                     // 이메일 입력 칸 생성
+      // let arrURL= ['co.kr','com','net','or.kr','go.kr'];     // 검사할 이메일 형식 배열
+
+      // let check1= false;                                     // false값으로 초기 값을 만듦(true일 경우 그냥 확인이 됨)
+      // let check2= false;
+      // let i= 0                                               // for문의 기초값
+      //     if(user.indexOf('@')>0){                           // 만약에 입력한 이메일에 '@'가 있으면
+      //         check1= true;                                  // check1을 true로 바꾼 후 다음 코드 실행(없을 경우 false값 그대로)
+      //     }
+      //     for(i=0; i<arrURL.length; i++){                    // 반복문을 사용, 검사할 이메일 형식의 갯수만큼 반복
+      //         if(user.indexOf(arrURL[i])>0){                 // 만약에 입력한 이메일에 검사할 이메일 형식의 인덱스 값이 있을 경우
+      //             check2= true;                              // check2를 true로 바꾼 후 다음 코드 실행(없을 경우 false값 그대로)
+      //         }
+      //     }
+      //     if(check1&&check2){                                // check1과 check2가 둘다 true일 경우(&& - 하나라도 false값이 나오면 false 출력)
+      //         alert('확인 되었습니다' + ' ' + user);          // 경고창 띄움 (확인 메시지와 입력한 이메일 출력)
+      //     }
+      //     else{                                              // check1과 check2가 둘중 하나라도 false값이 나오면
+      //         alert('다시 입력해주세요');                     // 경고창 띄움 (다시 입력 메시지)
+      //     }
+
+      // 함수 호출 실습
+      let color = ["red", "yellow", "blue", "black"]; //변수에 색을 나열
+      let i = 0; //if문의 초기값
+
+      function changeColor() {
+        //함수 생성 후 함수 안에 코드 삽입
+        i++; //i가 0부터 계속 증가
+        if (i >= color.length) {
+          //i가 색배열의 갯수의 크기 이상이 될경우
+          i = 0; //다시 0으로 초기화(0이 아닌 1을 추가 할경우 color[1]부터 시작 하므로 빨간색 나오지 않음)
+        }
+        let bodyTag = document.getElementsByTagName("body")[0]; //변수안에 body라는 태그를 가져옴()
+        bodyTag.style.backgroundColor = color[i]; //body태그안에 배경색의 스타일을 색배열 인덱스 값으로 바꾼다
+      }
+      let btn = document.getElementsByTagName("button")[1]; //변수안에 button이라는 태그를 가져옴([1]두번째 버튼)
+      btn.addEventListener("click", function () {
+        //button태그에 이벤트 추가
+        changeColor(); //클릭시 changeColor함수 실행
+      });
+
+      // 매개변수
+      // function Hello(from, name){                                             //함수 작성시 매개변수 입력
+      //     document.write(from + '에서 오신' + ' ' + name + '님 환영합니다')    //매개변수를 통해 출력
+      // }                                                                       //매개변수에 값을 입력 및 호출
+      // Hello('부산','마리마리얍')                                               //(Hello('부산','마리마리얍') => 함수이름(매개변수1,매개변수2))
+
+      // 매개변수(arguments)
+      // function printDate(){                           //함수 생성
+      //     arguments;                                  //arguments를 실행 함으로서 매개변수 생략
+      //     for(let i= 0; i<arguments.length; i++){     //i가 0 일때 부터 입력받는 변수값의 길이까지 i가 증가
+      //         document.write(arguments[i]);           //화면에 arguments[i]을 출력
+      //     }
+      // }
+      // printDate('안녕',' ','난',' ','마리마리얍');     //함수명(arguments의 데이터값 입력 = 매개변수값 입력)
+
+      // return 사용하기
+      // let arrSubject= ['LOL','OVERWARCH'];                            //arrDate, 매개변수를 통해 2개의 데이터값 전달
+
+      // function testAvg(arrDate){                                      //매개변수 지정후 함수 생성
+      //     let sum= 0;                                                 //변수에 초기값 지정
+      //     for(let i= 0; i<arrDate.length; i++){                       //i가 arrDate값의 길이까지 반복
+      //         sum +=Number(prompt(arrDate[i]+ ' ' + 'MMR 몇점?'));    //sum에 입력받는 arrDate값 대입
+      //     }
+      //     let avg= sum/arrDate.length;                                //변수 지정후 평균 구하기
+      //     return avg;                                                 //결과값(avg) 출력과 동시에 종료
+      // }
+      // document.write(testAvg(arrSubject) + ' ' + '이게 다야?');       //실행한 함수에 입력값 배열을 삽입후 화면에 실행한 함수 결과값 표시
+
+      // return의 강제 종료
+      // let num= 1;
+      // let txt= document.getElementsByTagName('p')[0];      //변수안에 p이라는 태그를 가져옴
+
+      // function txtSlide(nextBtn){                          //함수 생성 및 매개변수 지정
+      //     if(nextBtn){                                     //if가 true일때 (문자열 = true)
+      //         if(num==10) return;                          //num이 10이 되면 종료 후
+      //         num++;                                       //num증가 시키기
+      //         txt.innerHTML=num;                           //p태그안를 num으로 변경
+      //     }
+      //     else{                                            //if가 아닐시
+      //         if(num==1) return;                           //num이 1이 되면 종료 후
+      //         num--;                                       //num감소 시키기
+      //         txt.innerHTML=num;                           //p태그안를 num으로 변경
+      //     }
+      // }
+
+      // 함수의 반복(재귀함수)
+      // function 함수명(){       //기본적으로 다음과 같이 작성
+      // 코드;
+      // 함수명();
+      // }
+      // 함수명();
+
+      // 재귀함수 실습하기
+      // let num= 0;                                         //변수에 초기값 삽입
+      // function repeatFx(){                                //함수 실행
+      //     num++;                                          //변수 증가
+      //     document.write(num + '번째 실행' + "<br>");     //변수값을 화면에 표시
+      //     if(num==5) return;                             //만약에 변수가 5일때 종료
+
+      //     repeatFx();                                    //함수 반복
+      // }
+      // repeatFx();                                        //함수 실행
+
+      // 객체 생성자 함수 실습
+      // function GetSound(name, volume, eq){                        //객체 생성자 함수 실행 (this 키워드로 속성 등록)
+      //     this.deviceName= name;                                  //이름 객체 생성
+      //     this.deviceVol= volume;                                 //볼륨 객체 생성
+      //     this.deviceEq= eq;                                      //이퀄라이저 객체 생성
+
+      //     this.printInfo= function(){                             //함수 실행
+      //         let str= '';                                        //값이 들어갈 빈 변수 값 생성
+      //         str += '기기명 : ' + this.deviceName + "<br>";      //변수에 이름객체 삽입
+      //         str += '볼륨 : ' + this.deviceVol + "<br>";         //이름객체가 삽입 되어 있는 변수에 볼륨객체 삽입
+      //         str += '이퀄라이저 : ' + this.deviceEq + "<br>";    //이름,볼륨 객체가 삽입 되어 있는 변수에 이퀄객체 삽입
+      //         return str;                                        //종료 및 결과값 출력
+      //     }
+      // }
+      // let iphone= new GetSound('아이폰 10','10','classic');       //GetSound(첫번째 함수)에 매개변수(첫번째) 값 지정
+      // let galaxy= new GetSound('갤럭시S 20','5','pop');           //GetSound(첫번째 함수)에 매개변수(두번째) 값 지정
+
+      // document.write(iphone.printInfo());                        //객체를 참조한 변수(첫번째)로 객체함수(this.printInfo= function()) 출력
+      // document.write(galaxy.printInfo());                        //객체를 참조한 변수(두번째)로 객체함수(this.printInfo= function()) 출력
+      // document.write(iphone.printInfo === galaxy.printInfo);
+
+      // 프로토 타입으로 함수 등록(prototype으로 함수를 등록할 경우 iphone,galaxy 이 두객체가 같은 함수를 공유함)
+      // GetSound.prototype.printInfo= function(){
+      //         let str="";
+      //         str += "기기 : " + this.deviceName +"<br>";
+      //         str += "볼륨 : " + this.deviceVolumn +"<br>";
+      //         str += "이퀄라이저 : " + this.deviceEq +"<br><br>";
+      //         return str;
+      //         }
+
+      // 반복실행, 예약실행 (setInterval, setTimeout)
+      let num = 0; //변수(num)에 초기값 삽입
+      let banbok = setInterval(function () {
+        //다른 변수에 반복실행 시작(함수실행)
+        num++; //num값 증가
+        document.getElementById("showNum").innerHTML = num; //id값을 가져와서 HTML속성을 덮어쓰기(num값)
+      }, 1000); //1000밀리초(1초)
+
+      // 카운트 다운
+      let count = 5; //변수(count)에 초기값 5 삽입
+      let countDown = setInterval(function () {
+        //다른변수에 반복실행 시작(함수실행)
+        count--; //count값 감소
+        document.getElementById("count").innerHTML = count; //id값을 가져와서 HTML속성을 덮어쓰기(count값)
+        if (count === 0) clearInterval(countDown); //만약에 count값이 0이 될 경우 반복실행 종료
+      }, 1000); //1000밀리초(1초)
+      let timeout = setTimeout(function () {
+        //또다른 변수에 예약실행 시작(함수실행)
+        document.getElementById("count").innerHTML = "멈춰!"; //id값을 가져와서 HTML속성을 덮어쓰기('멈춰!')
+      }, 10000); //10000밀리초(카운트 되는 초보다 10배 많게 설정)
+
+      // Screen 객체
+      document.write(
+        "너비" +
+          screen.width +
+          "<br>" +
+          "높이" +
+          screen.height +
+          "<br>" +
+          "컬러 bit 값" +
+          screen.colorDepth
+      ); //화면의 너비, 높이, 컬러 bit 값 반환
+
+      // Location 객체
+      function gotoGoogle() {
+        if (location.hash == "#google") {
+          location.href = "http://www.google.com/";
+        }
+      }
+      document.getElementById("btn2").addEventListener("click", function () {
+        location.reload();
+        alert("다시시작티비");
+      });
+
+      // History 객체
+      // 뒤로가기
+      document.getElementById("btnBack").addEventListener("click", function () {
+        history.back();
+      });
+
+      // 앞으로가기
+      document
+        .getElementById("btnForward")
+        .addEventListener("click", function () {
+          history.forward();
+        });
+
+      // 이전 상세 페이지
+      document
+        .getElementById("btnBackStep")
+        .addEventListener("click", function () {
+          let stepNum = prompt("이동 할 이전 방문 페이지 단계는?", "");
+          history.go(stepNum);
+        });
+
+      // 방문기록 갯수
+      document
+        .getElementById("btnShowHistory")
+        .addEventListener("click", function () {
+          alert(history.length);
+        });
+
+      // 객체 집합 선택 실습
+      // for(var t=0; t<document.links.length; t++){}
+      //     document.write(document.links[i].name + "<br>");
+      //     document.write("갯수 : " + document.links.length + "<br>");
+
+      // 교체방법
+      // const span = document.querySelector("span");
+      // const textnode = span.nextSibling;
+      // textnode.replaceData(2, 4, "?" + "  ");
+    </script>
+  </body>
+</html>

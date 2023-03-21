@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>생활코딩</title>
+    <style>
+      #demo {
+        width: 200px;
+        float: left;
+        margin-top: 120px;
+      }
+      #execute {
+        float: left;
+        margin: 0;
+        font-size: 0.9em;
+      }
+      #execute {
+        padding-left: 5px;
+      }
+      #execute li {
+        list-style: none;
+      }
+      #execute pre {
+        border: 1px solid gray;
+        padding: 10px;
+      }
+
+      /* #target{
+            font-size:77px;
+            font-family: georgia;
+            border-bottom:1px solid black;
+            padding-bottom:10px;
+        }
+        p{
+            margin:5px;
+        } */
+
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      div {
+        border: 50px solid #1065e6;
+        padding: 50px;
+        margin: 50px;
+      }
+      #target {
+        width: 100px;
+        height: 2000px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <ul>                       
+        <li>HTML</li>
+        <li>CSS</li>
+        <li id="active">JavaScript</li> -->
+    <!-- HTMLCollection -->
+
+    <!-- <ul id="demo">
+        <li class="active">HTML</li>
+        <li id="active2">CSS</li>
+        <li class="active">JavaScript</li>
+    </ul>
+    <ul id="execute">
+        <li>
+            <pre>
+    var lis = document.getElementsByTagName('li');
+    for(var i=0; i&lt;lis.length; i++){
+        lis[i].style.color='red';
+    }   
+    </pre>
+            <pre>
+    $('li').css('color', 'red')     </pre>
+            <input type="button" value="execute" onclick="$('li').css('color', 'red')" />
+        </li>
+        <li>
+            <pre>
+    var lis = document.getElementsByClassName('active');
+    for(var i=0; i &lt; lis.length; i++){
+        lis[i].style.color='red';   
+    }</pre>
+            <pre>
+    $('.active').css('color', 'red')</pre>
+            <input type="button" value="execute" onclick="$('.active').css('color', 'red')" />
+        </li>
+        <li>
+            <pre>
+    var li = document.getElementById('active');
+    li.style.color='red';
+    li.style.textDecoration='underline';</pre>
+            <pre>
+    $('#active').css('color', 'red').css('textDecoration', 'underline');
+            </pre>
+            <input type="button" value="execute" onclick="$('#active').css('color', 'red').css('textDecoration', 'underline')" />
+        </li>
+    </ul>
+    <a id="anchor" href="http://opentutorials.org">opentutorials</a> 
+    <input type="button" id="button" onclick="window.open('DOM배우기.html')" value="DOM배우기" /> -->
+    <!-- HTMLElement -->
+
+    <!-- <ul>
+        <li>html</li>
+        <li>css</li>
+        <li>JavaScript</li>
+    </ul> -->
+    <!-- jQuery, .map() -->
+
+    <!-- <ul>
+        <li>html</li>
+        <li>css</li>
+        <li id="active" class="important current">JavaScript</li>
+    </ul>           
+    <input type="button" value="DOMTokenList" onclick="console.log(active.classList);" />       active.classList 이 속성에 저장되어 있는 객체는 DOMTokenList임 DOMTokenList는 각각의 class의 이름을 담아 놓은것
+    <input type="button" value="조회" onclick="loop();" />                                      
+    <input type="button" value="추가" onclick="active.classList.add('marked');" />              #active의 class에 데이터('marked')를 추가함, classList.add
+    <input type="button" value="제거" onclick="active.classList.remove('important');" />        #active의 class에 데이터('important')를 삭제함, classList.remove
+    <input type="button" value="토글" onclick="active.classList.toggle('current');" />          #active의 class에 데이터('current')를 유동적(추가 및 제거 가능)으로 움직임,classList.toggle -->
+    <!-- Element.classList -->
+
+    <!-- <ul>
+        <li class="marked">html</li>
+        <li>css</li>
+        <li id="active">JavaScript
+            <ul>
+                <li>JavaScript Core</li>
+                <li class="marked">DOM</li>
+                <li class="marked">BOM</li>
+            </ul>
+        </li>
+    </ul> -->
+    <!-- 조회 API -->
+
+    <!-- <a id="target" href="http://opentutorials.org">opentutorials</a> -->
+    <!-- 속성 API -->
+
+    <!-- <a id="target" href="http://opentutorials.org">opentutorials</a> -->
+    <!-- jQuery 속성 제어 API, attr -->
+
+    <!-- <a id="t1" href="file:///C:/Users/speed/OneDrive/Desktop/JS%20&%20html/html/8.html">opentutorials</a>
+    <input id="t2" type="checkbox" checked="checked" /> -->
+    <!-- jQuery의 속성제어 -->
+
+    <!-- <div id="t1">opentutorials</div>
+    <div id="t2">opentutorials</div>    -->
+    <!-- jQuery의 attribute와 property -->
+
+    <!-- <ul>
+        <li class="marked">html</li>
+        <li>css</li>
+        <li id="active">JavaScript
+            <ul>
+                <li>JavaScript Core</li>
+                <li class="marked">DOM</li>
+                <li class="marked">BOM</li>
+            </ul>
+        </li>
+    </ul> -->
+    <!-- jQuery 조회 범위 제한 (selector context, .find()) -->
+
+    <!-- <ul id="target">
+        <li>HTML</li>
+        <li>CSS</li>
+    </ul>
+    <input type="button" onclick="callAppendChild();" value="appendChild()" />
+    <input type="button" onclick="callInsertBefore();" value="insertBefore()" /> -->
+    <!-- 노드 변경 API (노드추가) -->
+
+    <!-- <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li id="target">JavaScript</li>
+    </ul>
+    <input type="button" onclick="callRemoveChild();" value="removeChild()" />
+    <input type="button" onclick="callReplaceChild();" value="replaceChild()" /> -->
+    <!-- 노드 변경 API (노드변경, 삭제) -->
+
+    <!-- <input type="button" value="변경(복사본)" id="btn1" />
+    <input type="button" value="변경(복사본)" id="btn2" />
+    <input type="button" value="변경(지정값)" id="btn3" />
+    <input type="button" value="변경(지정값)" id="btn4" />
+    <input type="button" value="이동" id="btn5" />
+    <input type="button" value="삭제(전체)" id="btn6" />
+    <input type="button" value="삭제(텍스트노드만)" id="btn7" />
+
+    <div class="target" id="target1">마리마리얍1</div> 
+    <div class="target" id="target2">마리마리얍2</div>
+
+    <div id="source">위잉위잉얍</div> -->
+    <!-- jQuery 노드 변경 API (노드교체, 복사, 이동) -->
+
+    <!-- <ul id="target">
+        <li>HTML</li>
+        <li>CSS</li>
+    </ul>
+
+    <input type="button" onclick="get();" value="불러오기(inner HTML)" />
+    <input type="button" onclick="set();" value="변경하기(inner HTML)" /><br>
+    <input type="button" onclick="get1();" value="불러오기(outer HTML)" />
+    <input type="button" onclick="set2();" value="변경하기(outer HTML)" /><br>
+    <input type="button" onclick="get3();" value="불러오기(inner Text)" />
+    <input type="button" onclick="set4();" value="변경하기(outer Text)" /><br>
+
+    <input type="button" onclick="beforebegin();" value="최상단(beforebegin)" />
+    <input type="button" onclick="afterbegin();" value="목록의 상단(afterbegin)" /><br>
+    <input type="button" onclick="beforeend();" value="목록의 하단(beforeend)" />
+    <input type="button" onclick="afterend();" value="최하단(afterend)" /> -->
+    <!-- 문자열로 노드 제어 -->
+
+    <!-- <p id="target">Cording everybody!</p>
+    <p> data :  <input type="text" id="datasource" value="JavaScript" /></p>
+    <p> start : <input type="text" id="start" value="5" /></p>
+    <p> end :   <input type="text" id="end" value="5" /></p>
+
+    <p> <input type="button" value="Text추가(뒤)" onclick="callAppendData()" />
+        <input type="button" value="Text삭제(위치지정)" onclick="callDeleteData()" />
+        <input type="button" value="Text삽입(위치지정)" onclick="callInsertData()" />
+        <input type="button" value="Text교체(위치지정)" onclick="callReplaceData()" />
+        <input type="button" value="Text확인(위치지정)" onclick="callSubstringData()" />
+    </p> -->
+    <!-- 조작 API -->
+
+    <!-- <input type="button" id="scrollBtn" value="scroll(0, 1000)" />
+    <div>
+        <div id="target">
+            Coding
+        </div>
+    </div> -->
+    <!-- viewport의 좌표   pageYOffset(Y축 스크롤의 정도 찾기), pageXOffset(X축 스크롤의 정도 찾기) -->
+
+    <!-- <input type="button" id="target1" value="button1" />
+    <input type="button" id="target2" value="button2" /> -->
+    <!-- addEventListener(), 복수의 엘리먼트에 하나의 리스너를 등록 -->
+
+    <script src="jquery-3.6.1.js"></script>
+
+    <script>
+      //HTMLElement
+
+      // var target = document.getElementById('active');
+      // console.log(target.constructor.name);
+
+      // var target = document.getElementById('anchor');
+      // console.log(target.constructor.name);
+
+      // var target = document.getElementById('button');
+      // console.log(target.constructor.name);
+    </script>
+
+    <script>
+      //HTMLCollection                                       //리턴 결과가 복수인 경우에 사용하게 되는 객체
+      // console.group('before');                            //console.group('before')과 console.groupEnd() 사이에 있는
+      // var lis = document.getElementsByTagName('li');      //결과들을 묶어놓음
+      // for(var i = 0; i < lis.length; i++){
+      //     console.log(lis[i]);
+      // }
+      // console.groupEnd();
+      // console.group('after');                             //따로 변수에 담지 않아도 실시간으로 삭제 된것이
+      // lis[1].parentNode.removeChild(lis[1]);              //HTMLCollection에 적용되기 때문에 굳이 다시 조회 하지 않아도 됨
+      // for(var i = 0; i < lis.length; i++){                //document.getElementsByTagName('li')를 다시 사용할 필요가 없다
+      //     console.log(lis[i]);
+      // }
+      // console.groupEnd();
+    </script>
+
+    <script>
+      //jQuery 객체
+      // console.log($('li').length);
+      // console.log($('li')[0]);
+      // var li = $('li');
+      // for(var i=0; i<li.length; i++){
+      //     console.log(li[i]);                            //li[i]의 값은 해당 엘리먼트에 대한 jQuery 객체가 아니라 DOM 객체이므로
+      // }                                                  //jQuery의 기능을 이용해서 이 객체를 제어하려면 jQuery 함수를 사용
+
+      // for(var i=0; i<li.length; i++){
+      //     $(li[i]).css('color', 'red');                  //DOM객체인 li[i]을 jQuery 함수인 $(li[i])으로 바꿔야만
+      // }                                                  //jQuery를 제어 및 사용가능
+    </script>
+
+    <script>
+      //jQuery, .map()                                      //.map()이라고 하는 jQuery 객체의 메소드를 사용하여
+      // var li = $('li');                                     //jQuery 객체에 담겨있는 엘리먼트를 순회하면서
+      // li.map(function(index, elem){                         //정보를 얻거나 또는 작업을 처리
+      //     console.log(index, elem);       //jQuery 객체의 정보
+      //     $(elem).css('color', 'red');    //jQuery 함수로 만든 후(return 값 = jQuery 객체) 작업 처리
+      // });
+    </script>
+
+    <script>
+      //식별자 API
+      // console.log(document.getElementById('active').tagName);     //엘리먼트의 태그 이름을 알아냄, 태그 이름 변경불가, Element.tagName
+
+      // var active = document.getElementById('active');             //변수에 #active를 대입, Element.id
+      // console.log(active.id);                                     //변수의 id값을 로그로 표시(active)
+      // active.id = 'deactive';                                     //변수의 id값을 deactive으로 변경
+      // console.log(active.id);                                     //변수의 id값을 로그로 표시(deactive)
+
+      // var active = document.getElementById('active');                //변수에 #active를 대입, Element.classList
+      //                                                                //class 값을 변경할 때는 프로퍼티의 이름으로 className을 사용한다.
+      // active.className = "important current";                        //active객체의 class의 이름을 important current으로 지정 후 삽입
+      // console.log(active.className);                                 //active객체의 className을 로그로 표시(important current)
+      //                                                                //클래스를 추가할 때는 아래와 같이 문자열의 더한다.
+      // active.className += " readed"                                  //active객체의 className에 ' readed'추가(important current readed)
+
+      // function loop(){                                        //Element.classList
+      //     for(var i=0; i<active.classList.length; i++){
+      //         console.log(i, active.classList[i]);
+      //     }
+      // }
+    </script>
+
+    <script>
+      //조회 API
+      // var list = document.getElementsByClassName('marked');       //문서 전체에서(document) class가 marked인 것을 변수에 대입
+      // console.group('document');                                  //로그창에 document라는 그룹 생성
+      // for(var i=0; i<list.length; i++){                           //반복문을 통해
+      //     console.log(list[i].textContent);                       //HTML엘리먼트가 가지고 있는 텍스트 콘텐츠 출력
+      // }
+      // console.groupEnd();                                         //그룹닫기
+
+      // console.group('active');                                    //로그창에 active라는 그룹 생성
+      // var active = document.getElementById('active');             //변수에 #active를 대입
+      // var list = active.getElementsByClassName('marked');         //#active가 담긴 변수 안에서 class가 marked인 것을 변수에 대입
+      // for(var i=0; i<list.length; i++){                           //반복문을 통해
+      //     console.log(list[i].textContent);                       //HTML엘리먼트가 가지고 있는 텍스트 콘텐츠 출력
+      // }
+      // console.groupEnd();                                         //그룹닫기
+    </script>
+
+    <script>
+      //속성 API
+      // var t = document.getElementById('target');
+      // console.log(t.getAttribute('href'));                //http://opentutorials.org
+      // t.setAttribute('title', 'opentutorials.org');       // title 속성의 값을 설정한다.
+      // console.log(t.hasAttribute('title'));               // true, title 속성의 존재여부를 확인한다.
+      // t.removeAttribute('title');                         // title 속성을 제거한다.
+      // console.log(t.hasAttribute('title'));               // false, title 속성의 존재여부를 확인한다.
+    </script>
+
+    <script>
+      //jQuery 속성 제어 API, attr
+      // jQuery( document ).ready(function( $ ) {
+      //     var t = $('#target');
+      //     console.log(t.attr('href'));                //http://opentutorials.org
+      //     t.attr('title', 'opentutorials.org');       //title 속성의 값을 설정한다.
+      //     t.removeAttr('title');                      //title 속성을 제거한다.
+      // });
+    </script>
+
+    <script>
+      //Node의 종류 API
+      // for(var name in Node){                  //노드의 종류에 따라서 정해진 상수가 존재
+      //     console.log(name, Node[name]);      //모든 노드의 종류와 종류에 따른 값을 출력하는 예제
+      // }
+    </script>
+
+    <script>
+      //jQuery의 속성제어
+      // 현재 문서의 URL이 아래와 같다고 했을 때
+      // file:///C:/Users/speed/OneDrive/Desktop/JS%20&%20html/html/8.html
+      // var t1 = $('#t1');
+      // console.log(t1.attr('href'));           //./8.html
+      // console.log(t1.prop('href'));           //file:///C:/Users/speed/OneDrive/Desktop/JS%20&%20html/html/8.html
+
+      // var t2 = $('#t2');
+      // console.log(t2.attr('checked'));        //checked
+      // console.log(t2.prop('checked'));        //true
+    </script>
+
+    <script>
+      //jQuery의 attribute와 property
+      // jQuery( document ).ready(function( $ ) {
+      //     $('#t1').prop('className', 'important');        //property에서 사용하는 이름을 쓰나
+      //     $('#t2').prop('class', 'current');              //attribute에서 사용하는 이름을 쓰나
+      // });                                                 //jQuery는 내부적으로 보정을 해주어 같은 결과 값이 나옴
+    </script>
+
+    <script>
+      //jQuery 조회 범위 제한 (selector context, .find())
+      // jQuery( document ).ready(function( $ ) {
+      //     $(".marked", "#active").css( "background-color", "red" );                                //.marked에서 #active를 찾아 배경색을 빨강  (첫째줄과 둘째줄 같은 결과를 도출해냄), $(".marked", "#active")여기서 두번째 인자가 selector context임
+      //     $("#active .marked").css( "background-color", "blue" );                                  //#active에서 .marked를 찾아 배경색을 파랑  (첫째줄과 둘째줄 같은 결과를 도출해냄)
+      //     $("#active").find('.marked').css( "background-color", "brown" );                         //#active에서 .find를 사용해 '.marked'를 찾아 배경색을 갈색
+      //     $("#active").css("color", "blue").find(".marked").css("background-color", 'pink');       //#active의 색을 파랑으로 변경 후 .find를 사용해 '.marked'를 찾아 배경색을 분홍홍
+      // })                                                                                           //find를 너무 복잡하게 사용하면 코드를 유지보수하기 어렵게 된다.
+    </script>
+
+    <script>
+      //노드 변경 API (노드추가)
+      //     function callAppendChild(){                             //함수 생성
+      //     var target = document.getElementById('target');         //변수에 id가 target 엘리먼트 객체를 가져와서 대입
+      //     var li = document.createElement('li');                  //변수에 il라는 요소를 만들어서 대입(이때 노드객체의 API가 아닌 document객체의 메소드를 사용해야함)
+      //     var text = document.createTextNode('JavaScript');       //변수에 JavaScript라는 텍스트 노드를 만듬
+      //     li.appendChild(text);                                   //li노드에 마지막으로 주어진 자식 엘리먼트 추가(<li>'JavaScript'</li>)
+      //     target.appendChild(li);                                 //target에 마지막으로 주어진 자식 엘리먼트 추가(<li>CSS</li>뒤에)
+      // }
+
+      // function callInsertBefore(){                                //함수 생성
+      //     var target = document.getElementById('target');         //변수에 id가 target 엘리먼트 객체를 가져와서 대입
+      //     var li = document.createElement('li');                  //변수에 il라는 요소를 만들어서 대입(이때 노드객체의 API가 아닌 document객체의 메소드를 사용해야함)
+      //     var text = document.createTextNode('jQuery');           //변수에 jQuery라는 텍스트 노드를 만듬
+      //     li.appendChild(text);                                   //li노드에 마지막으로 주어진 자식 엘리먼트 추가(<li>'jQuery'</li>)
+      //     target.insertBefore(li, target.firstChild);             //target.firstChild 뒤에 추가(<ul id="target">뒤 빈공간 text앞쪽에)
+      // }
+    </script>
+
+    <script>
+      //노드 변경 API (노드삭제)
+      // function callRemoveChild() {
+      //     var target = document.getElementById("target");
+      //     target.parentNode.removeChild(target);
+      // }
+    </script>
+
+    <script>
+      //노드 변경 API (노드교체)
+      // function callReplaceChild() {
+      //     var a= document.createElement('a');
+      //     a.setAttribute('href', 'index.html');
+      //     a.appendChild(document.createTextNode('main index'));
+
+      //     var target= document.getElementById('target');
+      //     target.replaceChild(a, target.firstChild);
+      // }
+    </script>
+
+    <script>
+      //jQuery 노드 변경 API (노드추가)
+      // jQuery( document ).ready(function( $ ) {
+      //     $('.target').before('<div>before</div>');       //target의 이전(<div class="target"></div>)에 등장과 동시에 target의 형제로 추가됨
+      //     $('.target').prepend('<div>prepend</div>');     //content 이전(content1,content2)에 등장과 동시에 target의 자식으로 추가
+      //     $('.target').append('<div>append</div>');       //content 다음(content1,content2)에 등장과 동시에 target의 자식으로 추가
+      //     $('.target').after('<div>after</div>');         //target의 이후(<div class="target"></div>)에 등장과 동시에 target의 형제로 추가됨
+      // });
+    </script>
+
+    <script>
+      //jQuery 노드 변경 API (노드복사, 교체, 이동, 삭제)
+      // jQuery( document ).ready(function() {
+      //     $('#btn1').click(function(){                                //#btn1을 클릭시 함수를 실행
+      //         $('#source').clone().replaceAll('#target1');            //#source를 복사 후 #target1을 변경한다
+      //     });
+      //     $('#btn2').click(function(){                                //#btn2을 클릭시 함수를 실행
+      //         $('#target2').replaceWith($('#source').clone());        //#target2에 #source를 복사 후 변경한다
+      //     });                                                         //노드 복사
+
+      //     $('#btn3').click(function(){                                //#btn3을 클릭시 함수를 실행
+      //         $("<div>호잇호잇얍</div>").replaceAll("#target1");      //<div>호잇호잇얍</div>으로 #target1을 교체한다
+      //     });
+      //     $('#btn4').click(function(){                                //#btn4을 클릭시 함수를 실행
+      //         $('#target2').replaceWith('<div>뿌슝뿌슝얍</div>');     //#target2를 <div>뿌슝뿌슝얍</div>으로 교체한다
+      //     });                                                         //노드 교체
+
+      //     $('#btn5').click(function(){                                //#btn5을 클릭시 함수를 실행
+      //         $('#source').prepend($('#target1'));                    //#source앞으로 #target1을 이동시킨다
+      //     });                                                         //노드 이동
+
+      //     $('#btn6').click(function(){                                //#btn6을 클릭시 함수를 실행
+      //         $('#target1').remove();                                 //#target1을 흔적도 없이 삭제한다
+      //     });
+      //     $('#btn7').click(function(){                                //#btn7을 클릭시 함수를 실행
+      //         $('#target2').empty();                                  //#target2의 text Node만 삭제한다
+      //     });                                                         //노드 삭제
+      // });
+    </script>
+
+    <script>
+      //문자열로 노드 제어
+      // function get(){                                                                     //함수 생성
+      //     var target = document.getElementById('target');                                 //변수에 target이라는 id값을 찾아 대입
+      //     alert(target.innerHTML);                                                        //경고창에 HTML 코드를 포함해 표시
+      // }
+      // function set(){
+      //     var target = document.getElementById('target');                                 //변수에 target이라는 id값을 찾아 대입
+      //     target.innerHTML = "<li>JavaScript Core</li><li>BOM</li><li>DOM</li>";          //기존에 있던 target값을 변경
+      // }                                                                                   //innerHTML
+
+      // function get1(){                                                                    //함수 생성
+      // var target = document.getElementById('target');                                     //변수에 target이라는 id값을 찾아 대입
+      // alert(target.outerHTML);                                                            //target자신과 HTML 코드들을 포함해 표시
+      // }
+      // function set2(){                                                                    //함수 생성
+      //     var target = document.getElementById('target');                                 //변수에 target이라는 id값을 찾아 대입
+      //     target.outerHTML = "<ol><li>JavaScript Core</li><li>BOM</li><li>DOM</li></ol>"; //기존에 있던 target자신을 변경
+      // }                                                                                   //outerHTML
+
+      // function get3(){                                                                    //함수 생성
+      // var target = document.getElementById('target');                                     //변수에 target이라는 id값을 찾아 대입
+      // alert(target.innerText);                                                            //경고창에 HTML 코드를 제외해 표시
+      // }                                                                                   //innerText
+
+      // function set4(){                                                                    //함수 생성
+      //     var target = document.getElementById('target');                                 //변수에 target이라는 id값을 찾아 대입
+      //     target.outerText = "<li>JavaScript Core</li><li>BOM</li><li>DOM</li>";          //HTML의 코드를 그대로 변경
+      // }                                                                                   //outerText
+
+      // function beforebegin(){                                                             //함수 생성
+      //     var target = document.getElementById('target');                                 //변수에 target이라는 id값을 찾아 대입
+      //     target.insertAdjacentHTML('beforebegin','<h1>Client Side</h1>');                //target자신 상단에 추가(첫번째 인자의 값은 4가지로 정해져 있음, beforebegin)
+      // }
+      // function afterbegin(){                                                              //함수 생성
+      //     var target = document.getElementById('target');                                 //변수에 target이라는 id값을 찾아 대입
+      //     target.insertAdjacentHTML('afterbegin','<li>HTML</li>');                        //target의 자식 상단에 추가(첫번째 인자의 값은 4가지로 정해져 있음, afterbegin)
+      // }
+      // function beforeend(){                                                               //함수 생성
+      //     var target = document.getElementById('target');                                 //변수에 target이라는 id값을 찾아 대입
+      //     target.insertAdjacentHTML('beforeend','<li>JavaScript</li>');                   //target의 자식 아래 추가(첫번째 인자의 값은 4가지로 정해져 있음, beforeend)
+      // }
+      // function afterend(){                                                                //함수 생성
+      //     var target = document.getElementById('target');                                 //변수에 target이라는 id값을 찾아 대입
+      //     target.insertAdjacentHTML('afterend','<h1>Server Side</h1>');                   //target자신 아래 추가(첫번째 인자의 값은 4가지로 정해져 있음, afterend)
+      // }                                                                                   //insertAdjacentHTML
+    </script>
+
+    <script>
+      //조작 API
+      // var target = document.getElementById('target').firstChild;      //변수에 #target의 첫번째 노드(Text)를 대입
+      // var data = document.getElementById('datasource');               //변수에 #datasource을 가져와 대입
+      // var start = document.getElementById('start');                   //변수에 #start을 가져와 대입
+      // var end = document.getElementById('end');                       //변수에 #end을 가져와 대입
+
+      // function callAppendData(){                                      //함수 생성, appendData
+      //     target.appendData(data.value);                              //target 객체(TextNode) 끝에 data.value(id="datasource" value="JavaScript")를 삽입
+      // }
+
+      // function callDeleteData(){                                      //함수 생성, deleteData
+      //     target.deleteData(start.value, end.value);                  //target 객체(TextNode)의 start.value(id="start" value="5")부터 end.value(id="end" value="5")까지 삭제
+      // }
+
+      // function callInsertData(){                                      //함수 생성, insertData
+      //     target.insertData(start.value, data.value);                 //target 객체(TextNode)의 start.value(id="start" value="5")부터 data.value(id="datasource" value="JavaScript")를 삽입
+      // }
+
+      // function callReplaceData(){                                     //함수 생성, replaceData
+      //     target.replaceData(start.value, end.value, data.value);     //target 객체(TextNode)의 start.value(id="start" value="5")부터 end.value(id="end" value="5")까지 잘라내고
+      // }                                                               //그 사이에 data.value(id="datasource" value="JavaScript")를 삽입
+
+      // function callSubstringData(){                                   //함수 생성, substringData
+      //     alert(target.substringData(start.value, end.value));        //target 객체(TextNode)의 start.value(id="start" value="5")부터 end.value(id="end" value="5")까지 경고창에 띄움
+      // }
+    </script>
+
+    <script>
+      //viewport의 좌표               pageYOffset(Y축 스크롤의 정도 찾기), pageXOffset(X축 스크롤의 정도 찾기)
+      var t = document.getElementById("target");
+      setInterval(function () {
+        console.log(
+          "getBoundingClientRect : ",
+          t.getBoundingClientRect().top,
+          "pageYOffset:",
+          window.pageYOffset
+        ); //엘리먼트의 크기와 위치 확인, getBoundingClientRect
+      }, 1000); //스크롤의 정도 확인, window.pageYOffset (Y축)
+
+      document
+        .getElementById("scrollBtn")
+        .addEventListener("click", function () {
+          //테두리를 제외한 엘리먼트의 크기 확인, ClientWidth(폭) ClientHeight(높이)
+          window.scrollTo(0, 1000); //스크롤을 제어, window.scrollTo
+        });
+
+      console.log(
+        "window.innerWidth:",
+        window.innerWidth,
+        "window.innerHeight:",
+        window.innerHeight
+      ); //window.innerWidth(viewport폭), window.innerHeight(viewport높이)
+      console.log(
+        "screen.width:",
+        screen.width,
+        "screen.height:",
+        screen.height
+      ); //screen.width(사용자의 모니터의 해상도 - 폭), screen.height(사용자의 모니터의 해상도 - 높이)
+    </script>
+
+    <script>
+      //addEventListener(), 복수의 엘리먼트에 하나의 리스너를 등록
+      // var t1 = document.getElementById('target1');
+      // var t2 = document.getElementById('target2');
+      // function btn_listener(event){
+      //     switch(event.target.id){
+      //         case 'target1':
+      //             alert(1);
+      //             break;
+      //         case 'target2':
+      //             alert(2);
+      //             break;
+      //     }
+      // }
+      // t1.addEventListener('click', btn_listener);
+      // t2.addEventListener('click', btn_listener);
+    </script>
+  </body>
+</html>
